@@ -1,0 +1,56 @@
+body{
+	font-family: "NanumGothic"; /* 임시 */
+}
+#background{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("https://d2x8kymwjom7h7.cloudfront.net/live/application_no/119001/application_no/119001/images/2.-Screenshot_1636597455494.jpg"); /* 샘플 */
+	background-repeat: no-repeat; /* 배경화면 반복 여부 : 반복안함 */
+	background-size: cover; /* 배경화면 가득 채우기 */
+	background-position: center center ; /* 배경화면 중심 정가운데 */
+	opacity: .5; /* 블러처리 */
+}
+#mainui{
+	display: block;
+	position: absolute;
+	width: 1000px;
+	height: 600px;
+	margin-top: -300px; /* 크기의 절반만큼 */
+	margin-left: -500px;
+	top: 50%;
+	left: 50%;
+	z-index: 0; 
+}
+#mainui-grid{
+	display: flex;
+	column-count: 3; /* 3단 분리 */
+	justify-content: space-between;
+}
+#mainui-grid > div{
+	display: inline-block;
+	width: 330px;
+}
+#mainui-login{
+	height: 590px;
+}
+#mainui-guide{
+	height: 590px;
+}
+#mainui-review{
+	height: 180px;
+}
+#mainui-leaderboard{
+	height: 160px;
+}
+
+#mainui-login, #mainui-review, #mainui-leaderboard, #mainui-guide{ /* 메인ui 단체 적용  */
+	background-color: #fff;
+	border-radius: 10px;
+	margin: 6px 0px;
+	width: 329px;
+}
