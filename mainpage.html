@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
+	<title>메인페이지</title>
 	<link href="mainpage.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript">
+		function login() { //미완성
+			let user = document.getElementByID('user');
+			let password = document.getElementByID('password');
+		}
+	</script>
 </head>
 <body>
 	<div id="background">
@@ -16,7 +24,26 @@
 			</div>
 			<div>
 				<div id="mainui-login">
-					로그인창
+					<div id="login-form">
+						<div id="login">	
+							<label for="user" class="hidden">유저 이름</label>
+							<input id="user" type="text" placeholder="닉네임">
+						</div>
+						<div id="login">
+							<label for="password" class="hidden"> 비밀번호 </label>
+							<input id="password" type="password" placeholder="비밀번호">
+						</div>
+						<div id="signin">
+							<input type="submit" class="button" value="로그인">
+						</div>
+						<div id="signup">
+							<input type="submit" class="button" value="회원가입">
+						</div>
+
+					</div>
+				</div>
+				<div id="mainui-member">
+					제작진
 				</div>
 			</div>
 			<div>
