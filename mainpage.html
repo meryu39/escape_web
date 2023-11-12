@@ -4,11 +4,23 @@
 	<meta charset="utf-8">
 	<title>메인페이지</title>
 	<link href="mainpage.css" type="text/css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	<script type="text/javascript">
 		function login() { //미완성
 			let user = document.getElementByID('user');
 			let password = document.getElementByID('password');
 		}
+		function openPopup() {
+			let popup = document.getElementById("popup");
+			popup.style.visibility = "visible";
+			popup.style.opacity = "1";
+		}
+
+		function closePopup() {
+			let popup = document.getElementById("popup");
+			popup.style.visibility = "hidden";
+			popup.style.opacity = "0";
+	}
 	</script>
 </head>
 <body>
@@ -33,13 +45,12 @@
 							<label for="password" class="hidden"> 비밀번호 </label>
 							<input id="password" type="password" placeholder="비밀번호">
 						</div>
-						<div id="signin">
-							<input type="submit" class="button" value="로그인">
+						<div id="login">
+							<button type="button"> 로그인</button>
 						</div>
 						<div id="signup">
-							<input type="submit" class="button" value="회원가입">
+							<button type="button" onclick="openPopup()"> 회원가입</button>
 						</div>
-
 					</div>
 				</div>
 				<div id="mainui-member">
@@ -53,6 +64,21 @@
 				<div id="mainui-leaderboard">
 					리더보드
 				</div>
+			</div>
+		</div>
+		<div id="popup">
+			<div id="popup-content">
+				<span id="close-btn" onclick="closePopup()">&times;</span>
+				<h2>회원가입</h2>
+				<form>
+					<input type="text" placeholder="닉네임">
+					<input type="password" placeholder="비밀번호">
+					<select>
+						<option value="male">남성</option>
+						<option value="female">여성</option>
+					</select>
+					<input type="button" value="가입">
+				</form>
 			</div>
 		</div>
 	</div>
