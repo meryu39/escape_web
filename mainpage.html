@@ -6,9 +6,25 @@
 	<link href="mainpage.css" type="text/css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 	<script type="text/javascript">
-		function login() { //미완성
-			let user = document.getElementByID('user');
-			let password = document.getElementByID('password');
+		function login() { //로그인까진 구현했으나 이후 변화는 미구현
+			let user = document.getElementById("user");
+			let pw = document.getElementById("pw");
+
+			if (user.value =="" ) {
+            	alert("닉네임을 입력해주세요")
+            	return 0;
+            }
+            else if(pw.value == ""){
+            	alert("비밀번호를 입력해주세요")
+            	return 0;
+            }
+
+			let val = sessionStorage.getItem(user.value);
+			if (val == null || val !== pw.value) {
+				alert("이메일 또는 비밀번호가 일치하지 않습니다")
+			}
+			else
+				alert("로그인 완료")
 		}
 		function openPopup() {
 			let popup = document.getElementById("popup");
@@ -18,9 +34,42 @@
 
 		function closePopup() {
 			let popup = document.getElementById("popup");
+			let user = document.getElementById("user-reg");
+            let pw = document.getElementById("pw-reg");
+            let repw = document.getElementById("repw-reg");
+
+            user.value = null;
+            pw.value = null; 
+            repw.value = null; // 회원가입창 닫았을 때 쓰던 내용 초기화
+
 			popup.style.visibility = "hidden";
 			popup.style.opacity = "0";
-	}
+		}
+		 function register(){
+		 	let popup = document.getElementById("popup");
+            let user = document.getElementById("user-reg");
+            let pw = document.getElementById("pw-reg");
+            let repw = document.getElementById("repw-reg");
+
+            //유효성 검사
+            if (user.value =="" ) {
+            	alert("닉네임을 입력해주세요")
+            	return 0;
+            }
+            else if(pw.value == ""){
+            	alert("비밀번호를 입력해주세요")
+            	return 0;
+            }
+            else if(pw.value !== repw.value){
+            	alert("비밀번호를 확인해주세요")
+            	return 0;
+            }
+
+            sessionStorage.setItem(user.value, pw.value); //세션에 아이디 비번 저장
+            popup.style.visibility = "hidden";
+			popup.style.opacity = "0";
+
+        }
 	</script>
 </head>
 <body>
@@ -38,15 +87,15 @@
 				<div id="mainui-login">
 					<div id="login-form">
 						<div id="login">	
-							<label for="user" class="hidden">유저 이름</label>
-							<input id="user" type="text" placeholder="닉네임">
+							<label for="user" class="hidden">닉네임</label>
+							<input id="user" type="text" placeholder="닉네임" onKeyPress="if( event.keyCode==13 ){login();}">
 						</div>
 						<div id="login">
-							<label for="password" class="hidden"> 비밀번호 </label>
-							<input id="password" type="password" placeholder="비밀번호">
+							<label for="pw" class="hidden"> 비밀번호 </label>
+							<input id="pw" type="password" placeholder="비밀번호" onKeyPress="if( event.keyCode==13 ){login();}">
 						</div>
 						<div id="login">
-							<button type="button"> 로그인</button>
+							<button type="button" onclick="login()"> 로그인</button>
 						</div>
 						<div id="signup">
 							<button type="button" onclick="openPopup()"> 회원가입</button>
@@ -71,13 +120,14 @@
 				<span id="close-btn" onclick="closePopup()">&times;</span>
 				<h2>회원가입</h2>
 				<form>
-					<input type="text" placeholder="닉네임">
-					<input type="password" placeholder="비밀번호">
+					<input id= "user-reg" type="text" placeholder="닉네임" onKeyPress="if( event.keyCode==13 ){register();}">
+					<input id= "pw-reg" type="password" placeholder="비밀번호" onKeyPress="if( event.keyCode==13 ){register();}">
+					<input id= "repw-reg" type="password" placeholder="비밀번호 확인" onKeyPress="if( event.keyCode==13 ){register();}">
 					<select>
 						<option value="male">남성</option>
 						<option value="female">여성</option>
 					</select>
-					<input type="button" value="가입">
+					<input type="button" value="가입" onclick="register()">
 				</form>
 			</div>
 		</div>
