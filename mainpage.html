@@ -22,9 +22,12 @@
 			let val = sessionStorage.getItem(user.value);
 			if (val == null || val !== pw.value) {
 				alert("이메일 또는 비밀번호가 일치하지 않습니다")
+				return 0;
 			}
 			else
 				alert("로그인 완료")
+			sessionStorage.setItem("id", user.value);
+			window.location.replace("mainpage_logined.html");
 		}
 		function openPopup() {
 			let popup = document.getElementById("popup");
@@ -64,8 +67,13 @@
             	alert("비밀번호를 확인해주세요")
             	return 0;
             }
+            else if(sessionStorage.getItem(user.value)!==null){
+            	alert("이미 존재하는 닉네임입니다")
+            	return 0;
+            }
 
             sessionStorage.setItem(user.value, pw.value); //세션에 아이디 비번 저장
+            alert("회원가입 완료")
             popup.style.visibility = "hidden";
 			popup.style.opacity = "0";
 
@@ -80,7 +88,10 @@
 		<div id="mainui-grid">
 			<div>
 				<div id="mainui-guide">
-					게임설명이나 소개
+					<div id="guide">
+						저희 게임은 수업 시간에 배운 내용을 활용하여 웹페이지를 탈출하는 게임입니다.<br>
+						게임은 30개의 스테이지로 이루어져 있으며 모두 클리어해보시길 바랍니다.
+					</div>					
 				</div>
 			</div>
 			<div>
@@ -94,6 +105,7 @@
 							<label for="pw" class="hidden"> 비밀번호 </label>
 							<input id="pw" type="password" placeholder="비밀번호" onKeyPress="if( event.keyCode==13 ){login();}">
 						</div>
+						<hr>
 						<div id="login">
 							<button type="button" onclick="login()"> 로그인</button>
 						</div>
@@ -103,12 +115,18 @@
 					</div>
 				</div>
 				<div id="mainui-member">
-					제작진
+					<div id="member">
+						<h2> 제작진 및 역할 </h2>
+						김병훈 - 메인페이지 제작 <br>
+						김기명 - 게임 제작 <br>
+						박세진 - 게임 제작 <br>
+						서경식 - 게임 제작 <br>
+					</div>
 				</div>
 			</div>
 			<div>
-				<div id="mainui-review">
-					리뷰
+				<div id="mainui-savefile">
+					세이브파일 불러오기
 				</div>
 				<div id="mainui-leaderboard">
 					리더보드
@@ -123,10 +141,6 @@
 					<input id= "user-reg" type="text" placeholder="닉네임" onKeyPress="if( event.keyCode==13 ){register();}">
 					<input id= "pw-reg" type="password" placeholder="비밀번호" onKeyPress="if( event.keyCode==13 ){register();}">
 					<input id= "repw-reg" type="password" placeholder="비밀번호 확인" onKeyPress="if( event.keyCode==13 ){register();}">
-					<select>
-						<option value="male">남성</option>
-						<option value="female">여성</option>
-					</select>
 					<input type="button" value="가입" onclick="register()">
 				</form>
 			</div>

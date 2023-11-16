@@ -36,15 +36,17 @@ body{
 	width: 330px;
 }
 #mainui-login{
-	display: flex;
 	height: 294px;
-	align-items : center;
-	justify-content: center;
 }
 #mainui-guide{
 	height: 590px;
 }
-#mainui-review{
+#guide{
+	width: 200px;
+	text-align: center;
+	font-size: 17px;
+}
+#mainui-savefile{
 	height: 294px;
 }
 #mainui-leaderboard{
@@ -53,16 +55,31 @@ body{
 #mainui-member{
 	height: 294px;
 }
-#mainui-login, #mainui-review, #mainui-leaderboard, #mainui-guide, #mainui-member{ /* 메인ui 단체 적용  */
+#member{
+	width: 200px;
+	text-align: center;
+	font-size: 17px;
+}
+#member h2{
+	margin-top: 0px;
+	margin-bottom:30px;
+}
+#mainui-login, #mainui-savefile, #mainui-leaderboard, #mainui-guide, #mainui-member, #mainui-game{ /* 메인ui 단체 적용  */
 	background-color: #fff;
 	border-radius: 10px;
 	margin: 6px 0px;
 	width: 329px;
+	display: flex;
+	align-items : center;
+	justify-content: center;
 }
 #login-form{
 	position: relative;
 	justify-content: center;
 	align-items : center;
+}
+#login-form hr{
+	margin: 0px;
 }
 #login input{ /* 로그인창 입력창 */
 	margin-bottom: 15px;
@@ -80,8 +97,8 @@ body{
 }
 
 #login button{ /* 로그인 버튼*/
-	width: 280px;
-	height: 35px;
+	width: 282px;
+	height: 36px;
 	border: 0;
 	margin-top: 15px;
 	margin-bottom: 10px;
@@ -96,8 +113,8 @@ body{
 	background-color: #0C60DE;
 }
 #signup button{ /* 회원가입 버튼 */
-	width: 280px;
-	height: 35px;
+	width: 282px;
+	height: 36px;
 	border: 0;
 	margin-bottom: 5px;
 	font-size: 16px;
@@ -147,8 +164,7 @@ body{
 	margin-right: 15px;
 }
 #popup-content input[type="text"],
-#popup-content input[type="password"],
-#popup-content select {
+#popup-content input[type="password"]{
 	margin-bottom: 10px;
 	padding: 8px;
 	border-radius: 3px;
@@ -171,4 +187,75 @@ body{
 	cursor: pointer;
 	font-size: 20px;
 	font: bold;
+}
+#mainui-game{
+	display: flex;
+	height: 294px;
+	align-items : center;
+	justify-content: center;	
+}
+#mainui-gamewrap{
+	position: relative;
+	justify-content: center;
+	align-items : center;
+	margin-left: auto;
+	margin-right: auto;
+}
+#profile {
+	width: 280px;
+	position: relative;
+	justify-content: center;
+	align-items : center;
+	text-align: center;
+	font-size: 20px;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+#profile-img{
+	width: 280px;
+	height: 80px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items : center;
+}
+#profile-img img{
+	display: flex;
+	width: 70px;
+	height: 70px;
+}
+#profile-user{
+	width: 280px;
+	height: 40px;
+	margin-bottom: 10px;
+}
+#game-start button{
+	width: 282px;
+	height: 36px;
+	border: 0;
+	margin-bottom: 8px;
+	font-size: 16px;
+	color: white;
+	background-color:#4CAF50;
+	border-radius: 3px;
+	font-family: inherit;
+	cursor: pointer;
+}
+#game-start button:hover{
+	background-color:#388E3C;
+}
+#logout button{
+	width: 282px;
+	height: 36px;
+	border: 0;
+	margin-bottom: 5px;
+	font-size: 16px;
+	color: white;
+	background-color: #FF7043;
+	border-radius: 3px;
+	font-family: inherit;
+	cursor: pointer;
+}
+#logout button:hover{
+	background-color: #F4511E;
 }
