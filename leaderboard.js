@@ -7,6 +7,8 @@ window.onbeforeunload = function() {
 function recordUpdate() {
     let currentUser = localStorage.getItem("id");
     let currentStage = window.location.pathname.split("/").pop().split(".")[0];
+    if(!currentUser)
+        return //로그인 안되어있으면 기록을 업데이트하지 않는다.
 
     // 기존 기록 가져오기
     let existingRecord = localStorage.getItem(currentUser + "End");
