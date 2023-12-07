@@ -1,8 +1,8 @@
-window.onload = function(){
+window.onbeforeunload = function() {
     var currentPage = window.location.pathname.split("/").pop();
-    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html" && currentPage !== "1.html") //메인페이지거나 첫스테이지일경우는 기록 갱신 안함
+    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html") //메인페이지거일 경우는 기록 갱신 안함
         recordUpdate();
-}
+};
 
 function recordUpdate() {
     let currentUser = localStorage.getItem("id");
@@ -50,7 +50,7 @@ function showLeaderboard() {
     let leaderboardHTML = "<h2>리더보드</h2><ol>";
     let rank = 1;
     for (let i = 0; i < leaderboardData.length; i++) {
-        leaderboardHTML += `<li>${rank}위. ${leaderboardData[i].nickname} - ${leaderboardData[i].stage - 1} 스테이지</li>`;
+        leaderboardHTML += `<li>${rank}위. ${leaderboardData[i].nickname} - ${leaderboardData[i].stage } 스테이지</li>`;
         // 값이 같으면 같은 순위로 표시
         if (i < leaderboardData.length - 1 && leaderboardData[i].stage !== leaderboardData[i + 1].stage) { 
             rank++; // 다음 값이 있고 다음 값이 지금 값과 같으면 공동이므로 숫자를 늘리지 않는다
