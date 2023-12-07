@@ -1,4 +1,10 @@
-function gameFinish() {
+window.onload = function(){
+    var currentPage = window.location.pathname.split("/").pop();
+    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html" && currentPage !== "1.html") //메인페이지거나 첫스테이지일경우는 기록 갱신 안함
+        recordUpdate();
+}
+
+function recordUpdate() {
     let currentUser = localStorage.getItem("id");
     let currentStage = window.location.pathname.split("/").pop().split(".")[0];
 
@@ -8,13 +14,7 @@ function gameFinish() {
     // 기록이 없거나 높은 스테이지로 갱신할 경우에만 업데이트
     if (!existingRecord || currentStage > existingRecord) {
         localStorage.setItem(currentUser + "End", currentStage);
-        alert("게임 종료! 최고 기록 갱신!");
-    } else {
-        alert("게임 종료!");
     }
-
-    // 리더보드 갱신
-    window.location.replace("mainpage_logined.html");
 }
 
 // 리더보드 표시 함수
@@ -34,7 +34,7 @@ function showLeaderboard() {
 
     // 기록이 없을 경우 안내 메시지 표시
     if (leaderboardData.length === 0) {
-        leaderboardContainer.innerHTML = "플레이 기록이 없어 <br> 리더보드가 비었습니다. <br> 플레이하여 첫 기록을 남기세요.";
+        leaderboardContainer.innerHTML = "<h2>리더보드</h2> 플레이 기록이 없어 <br> 리더보드가 비었습니다. <br> 플레이하여 첫 기록을 남기세요.";
         return;
     }
 
