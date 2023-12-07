@@ -1,4 +1,7 @@
 window.onbeforeunload = function() {
+    if(document.readyState == "complete") {
+        return
+    }
     var currentPage = window.location.pathname.split("/").pop();
     if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html") //메인페이지일 경우는 기록 갱신 안함
         recordUpdate();
