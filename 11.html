@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>11</title>
+  <meta charset="utf-8">
+  <title>11</title>
+  <style>
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
 </head>
-<style>
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  back
-}
-</style>
+<body>
 
 <div class="wrapper">
-<body>
-<a href="#" onclick="change(); return false;">
-	<img src="nolight.png" id = "test">
-	
-</a>
+  <a href="#" onclick="change(); return false;">
+    <img src="nolight.png" id="test">
+  </a>
+</div>
 
 <script>
-var c = true;
-function change() {
-if(c){
-  document.getElementById('test').src = 'light.png';
-  c = false;
+  var c = true;
 
-  setTimeout(function() {
-    document.getElementById('test').src = 'https://png.pngtree.com/thumb_back/fw800/background/20230521/pngtree-scary-picture-of-a-dark-man-image_2681676.jpg';
-  }, 3000);
-}
-}
+  function change() {
+    if (c) {
+      document.getElementById('test').src = 'light.png';
+      c = false;
+
+      setTimeout(function () {
+        document.getElementById('test').src = 'man.jpg';
+        document.getElementById('test').insertAdjacentHTML('afterend', '<img src="key.png" id="key" onclick="moveToMainPage();">');
+      }, 3000);
+    }
+  }
+
+  function moveToMainPage() {
+    window.location.href = 'mainpage.html';
+  }
 </script>
+
 </body>
 </html>
