@@ -8,12 +8,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: black;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .white-background {
+      background-color: white !important; 
     }
   </style>
 </head>
 <body>
 
-<div class="wrapper">
+<div class="wrapper" id="wrapper">
   <a href="#" onclick="change(); return false;">
     <img src="nolight.png" id="test">
   </a>
@@ -24,12 +31,16 @@
 
   function change() {
     if (c) {
+      document.getElementById('wrapper').classList.add('white-background'); // 흰색 배경 클래스 추가
       document.getElementById('test').src = 'light.png';
       c = false;
 
       setTimeout(function () {
+        document.getElementById('wrapper').classList.remove('white-background'); // 흰색 배경 클래스 제거
+        document.getElementById('wrapper').style.backgroundColor = 'black'; // 배경색을 검정색으로 변경
         document.getElementById('test').src = 'man.jpg';
-        document.getElementById('test').insertAdjacentHTML('afterend', '<img src="key.png" id="key" onclick="moveToMainPage();">');
+document.getElementById('test').insertAdjacentHTML('afterend', '<img src="key.png" id="key" onclick="moveToMainPage();" style="width: 150px; height: 150px;">');
+
       }, 3000);
     }
   }
