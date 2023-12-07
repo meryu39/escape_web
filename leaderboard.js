@@ -28,7 +28,7 @@ function showLeaderboard() {
         if (key.includes("End")) {
             let userId = key.split("End")[0];
             let pageName = localStorage.getItem(key);
-            leaderboardData.push({ nickname: userId, stage: parseInt(pageName) });
+            leaderboardData.push({ nickname: userId, stage: parseInt(pageName) }); //parseInt = String을 Int형으로 변환
         }
     }
 
