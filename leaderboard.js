@@ -1,6 +1,6 @@
 window.onbeforeunload = function() {
     var currentPage = window.location.pathname.split("/").pop();
-    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html") //메인페이지거일 경우는 기록 갱신 안함
+    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html") //메인페이지일 경우는 기록 갱신 안함
         recordUpdate();
 };
 
