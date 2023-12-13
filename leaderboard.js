@@ -1,12 +1,9 @@
-window.onbeforeunload = function() {
-    if(document.readyState == "complete") {
-        return
-    }
+window.addEventListener('DOMContentLoaded', function()
+{
     var currentPage = window.location.pathname.split("/").pop();
-    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html") //메인페이지일 경우는 기록 갱신 안함
+    if( currentPage !== "mainpage.html" && currentPage !== "mainpage_logined.html" && currentPage != "1.html") //메인페이지일 경우는 기록 갱신 안함
         recordUpdate();
-};
-
+});
 function recordUpdate() {
     let currentUser = localStorage.getItem("id");
     let currentStage = window.location.pathname.split("/").pop().split(".")[0];
@@ -17,8 +14,8 @@ function recordUpdate() {
     let existingRecord = localStorage.getItem(currentUser + "End");
 
     // 기록이 없거나 높은 스테이지로 갱신할 경우에만 업데이트
-    if (!existingRecord || currentStage > existingRecord) {
-        localStorage.setItem(currentUser + "End", currentStage);
+    if (!existingRecord || parseInt(currentStage) > parseInt(existingRecord)) {
+        localStorage.setItem(currentUser + "End", parseInt(currentStage) - 1);
     }
 }
 
