@@ -1,63 +1,55 @@
 <!DOCTYPE html>
-<html lang="kr">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>11</title>
   <script type="text/javascript" src="leaderboard.js"></script>
   <style>
+    .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      height: 100vh;
+      margin: 0;
+    }
 
-    .reroll img {
-      width: 2000px; 
-      height: 2000px;
-      display: block;
+    .white-background {
+      background-color: white !important; 
     }
   </style>
-
 </head>
 <body>
-  <div id="scrollDiv" style="overflow:auto">
-    <div class="image-box">
-      <img class="image-thumbnail">
-    </div>
-    <div style="position: relative; width: 2000px; height: 500px;">
-      <img src="top.png" alt="Background Image" style="width: 2000px; height: 1000px;">
-      <a href = "11.html">
-      <img src="key.png" alt="Overlay Image" style="position: absolute; top: 50px; left: 50px; width: 200px; height: 200px;"></a>
-    </div>
-    <div class="reroll" id="rerollContainer">
-    </div>
-  </div>
-  <script>
-    let  count = 0;
 
-    // 이미지 경로
-    const imagePath = "middle.png";
+<div class="wrapper" id="wrapper">
+  <a href="#" onclick="change(); return false;">
+    <img src="nolight.png" id="test">
+  </a>
+</div>
 
-    // rerollContainer 요소 가져오기
-    const rerollContainer = document.getElementById("rerollContainer");
+<script>
+  var c = true;
 
-    // scrollDiv 요소 가져오기
-    const scrollDiv = document.getElementById("scrollDiv");
+  function change() {
+    if (c) {
+      document.getElementById('wrapper').classList.add('white-background'); // 흰색 배경 클래스 추가
+      document.getElementById('test').src = 'light.png';
+      c = false;
 
-    // 새 이미지를 추가하고 스크롤을 아래로 이동하는 함수
-    function addImageAndScroll() {
-      if(count < 150){
-      // 새로운 이미지 요소 생성
-      const newImage = document.createElement("img");
-      newImage.src = imagePath;
+      setTimeout(function () {
+        document.getElementById('wrapper').classList.remove('white-background'); // 흰색 배경 클래스 제거
+        document.getElementById('wrapper').style.backgroundColor = 'black'; // 배경색을 검정색으로 변경
+        document.getElementById('test').src = 'man.jpg';
+document.getElementById('test').insertAdjacentHTML('afterend', '<img src="key.png" id="key" onclick="moveToMainPage();" style="width: 150px; height: 150px;">');
 
-      // rerollContainer에 새 이미지 추가
-      rerollContainer.appendChild(newImage);
-
-
-      window.scrollTo(0, document.body.scrollHeight);
-      setInterval(addImageAndScroll, 300);
-      count++;
+      }, 3000);
     }
-    }
+  }
 
-    // 초기 호출
-    addImageAndScroll();
-  </script>
+  function moveToMainPage() {
+    window.location.href = '11.html';
+  }
+</script>
+
 </body>
 </html>
