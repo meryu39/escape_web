@@ -34,14 +34,14 @@
             });
 
             checkButton.addEventListener("click", function() {
-                const answer = 89;
+                const answer = 98;
                 const userAnswer = parseInt(answerInput.value);
 
                 if (userAnswer === answer) {
                     resultMessage.textContent = "정답입니다!";
                     resultMessage.style.color = "green";
                     setTimeout(function() {
-                        window.location.href = "13.html";
+                        window.location.href = "mainpage.html";
                     }, 2000);
                 } else {
                     resultMessage.textContent = "오답입니다!";
