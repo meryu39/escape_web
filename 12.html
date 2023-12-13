@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마우스를 버튼에 올려 놓았을때 힌트 출력</title>
     <style>
         #container {
@@ -15,7 +16,8 @@
             display: none;
         }
     </style>
-    <script type="text/javascript" src="leaderboard.js">
+    <script type="text/javascript" src="leaderboard.js"></script>
+    <script>
         window.onload = function() {
             const hint = document.getElementById("hint");
             const object2 = document.getElementById("object2");
@@ -39,10 +41,9 @@
                     resultMessage.textContent = "정답입니다!";
                     resultMessage.style.color = "green";
                     setTimeout(function() {
-                        window.location.href = "mainpage.html";
+                        window.location.href = "13.html";
                     }, 2000);
-                }
-                else {
+                } else {
                     resultMessage.textContent = "오답입니다!";
                     resultMessage.style.color = "red";
                 }
@@ -64,7 +65,7 @@
     </p>
 
     <div id="container">
-        <img id="hint" width="50" height="50" src="hint.png" alt="Object 1">
+        <img id="hint" width="50" height="50" src="key.png" alt="Object 1">
         <div id="object2">A+B = A*B + B - 1</div>
     </div>
     <input type="text" id="answerInput" placeholder="정답">
