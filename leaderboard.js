@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', function()
 {
     var currentPage = window.location.pathname.split("/").pop();
-    if( currentPage !== "mainpage.html" && currentPage != "1.html") //메인페이지일 경우는 기록 갱신 안함
+    if( currentPage !== "mainpage.html"&& currentPage != "mainpage_logined.html" && currentPage != "1.html") //메인페이지일 경우는 기록 갱신 안함
         recordUpdate();
     if(currentPage == "mainpage_logined.html")
         clear();
