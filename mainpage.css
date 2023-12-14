@@ -9,11 +9,10 @@ body{
 	bottom: 0;
 	width: 100%;
 	height: 100%;
-	background-image: url("https://d2x8kymwjom7h7.cloudfront.net/live/application_no/119001/application_no/119001/images/2.-Screenshot_1636597455494.jpg"); /* 샘플 */
+	background-image: url("Background.jpg");
 	background-repeat: no-repeat; /* 배경화면 반복 여부 : 반복안함 */
 	background-size: cover; /* 배경화면 가득 채우기 */
 	background-position: center center ; /* 배경화면 중심 정가운데 */
-	opacity: .5; /* 블러처리 */
 }
 #mainui{
 	display: block;
@@ -75,6 +74,7 @@ body{
 	display: flex;
 	align-items : center;
 	justify-content: center;
+	opacity: .95;
 }
 #mainui-savefile button{
 	width: 200px;
